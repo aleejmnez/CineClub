@@ -1,4 +1,4 @@
-class Pelicula {
+/* class Pelicula {
   titulo: string;
   anio: number;
   genero: string;
@@ -46,7 +46,7 @@ class Pelicula {
     return this.duracion > 120;
   }
 
-  actualizarCalificacion(nuevaCalificacion: number) {
+  actualizarCalificacion(nuevaCalificacion: number): void {
     if (nuevaCalificacion >= 0 && nuevaCalificacion <= 10) {
       this.calificacion = nuevaCalificacion;
       console.log(
@@ -127,49 +127,14 @@ const pelicula8 = new Pelicula(
 );
 
 const pelicula: Pelicula[] = [
-  new Pelicula(
-    "Interstellar",
-    2014,
-    "Ciencia ficción",
-    169,
-    "Christopher Nolan",
-    9,
-  ),
-  new Pelicula(
-    "The Dark Knight",
-    2008,
-    "Acción",
-    152,
-    "Christopher Nolan",
-    9.2,
-  ),
-  new Pelicula("Parasite", 2019, "Thriller", 132, "Bong Joon-ho", 8.5),
-  new Pelicula("El Padrino", 1972, "Crimen", 175, "Francis Ford Coppola", 9.2),
-  new Pelicula("Toy Story", 1995, "Animación", 81, "John Lasseter", 8.3),
-  new Pelicula(
-    "Inception",
-    2010,
-    "Ciencia ficción",
-    148,
-    "Christopher Nolan",
-    8.8,
-  ),
-  new Pelicula(
-    "The Shawshank Redemption",
-    1994,
-    "Drama",
-    142,
-    "Frank Darabont",
-    9.3,
-  ),
-  new Pelicula(
-    "The Matrix",
-    1999,
-    "Ciencia ficción",
-    136,
-    "Lana Wachowski, Lilly Wachowski",
-    8.7,
-  ),
+  pelicula1,
+  pelicula2,
+  pelicula3,
+  pelicula4,
+  pelicula5,
+  pelicula6,
+  pelicula7,
+  pelicula8,
 ];
 
 console.log("--- CATÁLOGO COMPLETO ---");
@@ -199,6 +164,21 @@ function buscarPelicula(titulo: string) {
   }
 }
 
+function buscarPorgenero(genero: string) {
+  const coincidencias = pelicula.filter((p) => p.genero === genero);
+  if (coincidencias.length > 0) { 
+    console.log(`Películas encontradas con el género "${genero}":`);
+    coincidencias.forEach((p) => {
+      console.log(`Película encontrada: ${p.titulo} (${p.anio})`);
+      p.mostrarInformacion();
+    }); 
+  } else {
+    console.log (`No se encontraron películas con el género "${genero}".`);
+
+    }
+}
+  
+
 // function buscarPorgenero(genero:string){
 //   const coincidencias = pelicula.filter(p => p.genero === genero)
 
@@ -207,8 +187,11 @@ function buscarPelicula(titulo: string) {
 buscarPelicula("Interstellar");
 buscarPelicula("Inception");
 buscarPelicula("The Matrix");
+buscarPorgenero("Ciencia ficción");
 
-// console.log(pelicula1);
+
+/* // console.log(pelicula1); */
+
 // console.log(pelicula2);
 // console.log(pelicula3);
 // console.log(pelicula4);
@@ -216,3 +199,4 @@ buscarPelicula("The Matrix");
 // console.log(pelicula1.actualizarCalificacion(9.5));
 // console.log(pelicula2.esRecomendada());
 // console.log(pelicula3.esLarga());
+ 
